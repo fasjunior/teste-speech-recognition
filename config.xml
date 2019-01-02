@@ -6,10 +6,16 @@
 <author>Intel XDK</author>
 <content src="index.html"/>
 <preference name="android-build-tool" value="gradle" />
-<access origin="*" launch-external="yes" />
-<allow-intent href="http://*/*" />
-<allow-intent href="https://*/*" />
-<allow-navigation href="*"/>
+<platform name="android" >
+    <allow-intent href="http://*/*"/>
+    <allow-intent href="https://*/*"/>
+    <allow-intent href="tel:*"/>
+    <allow-intent href="sms:*"/>
+    <allow-intent href="mailto:*"/>
+    <allow-intent href="geo:*"/>
+    <allow-intent href="market:*"/>
+    <access origin="*"/>
+</platform>
 <platform name="ios" >
     <allow-intent href="http://*/*"/>
     <allow-intent href="https://*/*"/>
@@ -24,8 +30,10 @@
 <preference name="phonegap-version" value="cli-6.5.0" />
 <preference name="xwalkMultipleApk" value="false" />
 <plugin name="cordova-plugin-crosswalk-webview"/>
-<plugin name="cordova-plugin-splashscreen" spec="4.0.3"/>
-<plugin name="cordova-plugin-compat" spec="1.1.0"/>
+<plugin name="cordova-plugin-statusbar" spec="2.1.3"/>
+<plugin name="cordova-plugin-device" spec="1.1.2"/>
+<plugin name="cordova-plugin-splashscreen" spec="3.2.2"/>
+<plugin name="cordova-plugin-compat" spec="1.0.0"/>
 <plugin name="phonegap-plugin-speech-recognition" spec="https://github.com/macdonst/SpeechRecognitionPlugin">
 <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" "/>
 <variable name="SPEECH_RECOGNITION_USAGE_DESCRIPTION" value=" "/>
@@ -53,7 +61,8 @@
 </platform>
 <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect --ignore-gpu-blacklist "/>
 <platform name="android" >
-    <preference name="android-targetSdkVersion" value="28"/>
+    <preference name="android-minSdkVersion" value="16"/>
+    <preference name="android-targetSdkVersion" value="21"/>
     <preference name="android-installLocation" value="auto"/>
     <preference name="android-signed" value="true"/>
     <preference name="AndroidLaunchMode" value="singleTop"/>

@@ -29,14 +29,22 @@
 // You can add other code to it or add additional functions that are triggered
 // by the same event or other events.
 
-function onAppReady() {
-    if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova API detected
-        navigator.splashscreen.hide() ;
-    }
-   
-}
-document.addEventListener("app.Ready", onAppReady, false) ;
 
+var recognition;
+document.addEventListener('deviceready', onDeviceReady, false);
+
+function onDeviceReady() {
+    recognition = new SpeechRecognition();
+    recognition.onresult = function(event) {
+        alert('ok');
+        alert(event.results[0][0].transcript);
+        if (event.results.length > 0) {
+            let q = document.getElementById("q");
+            q.value = event.results[0][0].transcript;
+            q.form.submit();
+        }
+    }
+}
 // document.addEventListener("deviceready", onAppReady, false) ;
 // document.addEventListener("onload", onAppReady, false) ;
 
