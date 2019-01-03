@@ -2,7 +2,26 @@
  * Please see the included README.md file for license terms and conditions.
  */
 
+$(document).ready(function() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+});
 
+var recognition;
+function onDeviceReady() {  
+
+    $('#speak').click( function() {
+        navigator.notification.alert("Click", function(){});
+        recognition = new SpeechRecognition();          
+        recognition.onresult = function(event) {
+            navigator.notification.alert("Result", function(){});
+            if (event.results.length > 0) {
+                console.log(event.results[0][0].transcript);                
+                q.value = event.results[0][0].transcript;
+            }
+        };      
+        recognition.start();
+    });
+}
 // This file is a suggested starting place for your code.
 // It is completely optional and not required.
 // Note the reference that includes it in the index.html file.
