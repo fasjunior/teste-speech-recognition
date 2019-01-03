@@ -20,38 +20,28 @@
 // var el ;
 // el = document.getElementById("id_myButton") ;
 // el.addEventListener("click", myEventHandler, false) ;
-function alertDismissed() {
+//function alertDismissed() {
     // do something
-}
+//}
 
-console.log("iniciado");
+//console.log("iniciado");
 
 
 // The function below is an example of the best way to "start" your app.
 // This example is calling the standard Cordova "hide splashscreen" function.
 // You can add other code to it or add additional functions that are triggered
 // by the same event or other events.
-var recognition; 
-  function onAppReady() {
-    if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova API detected
-        navigator.splashscreen.hide() ;
-        navigator.notification.alert(
-            'You are the winner!',  // message
-            function(){}
-        );
-        recognition = new SpeechRecognition();
-        recognition.onresult = function(event) {
-            console.log("ok");
-            console.log(event);
-            if (event.results.length > 0) {
-                let q = document.getElementById("q");
-                q.value = event.results[0][0].transcript;
-                q.form.submit();
-            }
-        }
-    }
-  }
-  document.addEventListener("app.Ready", onAppReady, false) ;
+//var recognition; 
+//  function onAppReady() {
+//    if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova API detected
+//        navigator.splashscreen.hide() ;
+    //    navigator.notification.alert(
+  //          'You are the winner!',  // message
+//           function(){}
+//        );
+//    }
+  //}
+  //document.addEventListener("app.Ready", onAppReady, false) ;
 
 
 
